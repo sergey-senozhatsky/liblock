@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0
+/* Google LLC (c) 2022 */
+
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
 #endif

@@ -58,6 +58,12 @@ struct symbol {
 };
 
 static unordered_map<unw_word_t, struct symbol *>		__symbols;
+/*
+ * TID is the key, then we have resizable array of locks that this
+ * particular TID touched. It should not be that big, so liner scan
+ * is OK. And since traces are per-TID then we should be races free,
+ * only __locks hash table needs to be protected.
+ */
 static unordered_map<unsigned int, vector<struct trace *>>	__locks;
 static pthread_mutex_t						__locks_lock = PTHREAD_MUTEX_INITIALIZER;
 
